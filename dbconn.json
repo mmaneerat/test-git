@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "DB_USER": "root",
+    "DB_PASSWORD": "",
+    "DB_HOST": "localhost",
+    "DB_NAME": {
+      "main": "db_namechange",
+      "sso": "agdeptrt_adjgenius"
+    }
+  },
+  "prod": {
+    "DB_USER": "pmd_name_change",
+    "DB_PASSWORD": "hH_Z-pMFh94BEYMN",
+    "DB_HOST": "localhost",
+    "DB_NAME": {
+      "main": "db_namechange",
+      "sso": "agdeptrt_adjgenius"
+    }
+  }
+}

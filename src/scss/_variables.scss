@@ -1,0 +1,14 @@
+$primary: #16a085;
+$secondary: #86da7b;
+$midnight-blue : #020340;
+$neon-blue : #5061FA;
+$forest-green : #1F3B17;
+
+$custom-colors: (
+  "rn-green-light" : $secondary,
+  "rn-midnight-blue": $midnight-blue,
+  "rn-neon-blue": $neon-blue,
+  "rn-forest-green": $forest-green,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
