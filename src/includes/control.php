@@ -9,10 +9,8 @@ debug_forminfo();
 
 $sso_user = (!empty($_SESSION['ws16user'])) ? $_SESSION['ws16user'] : null;
 
-$idt_name = (isset($_POST['id']) && !empty($_POST['id'])) ? trim($_POST['id']) : "";
-$fname = (isset($_POST['fname']) && !empty($_POST['fname'])) ? trim($_POST['fname']) : "";
-$lname = (isset($_POST['lname']) && !empty($_POST['lname'])) ? trim($_POST['lname']) : "";
-$url_encode = urlencode($url);
+$id = (isset($_POST['idcard']) && !empty($_POST['idcard'])) ? trim($_POST['idcard']) : "";
+$id_encode = base64_encode($id);
 
 if (isset($_POST) && !empty($_POST)) {
     $formAction = $_POST['action'];
@@ -34,18 +32,23 @@ if (isset($_POST) && !empty($_POST)) {
 
 
     switch ($formAction) {
-       
-        // user/front/view/add_data/add_name.php
-        case 'editdata_user':
+
+        case 'id':
 
             $sql = $sapdb->prepare(
-                "SELECT uri FROM filename_case WHERE idt_name = '$idt_name'"
+                "SELECT idt_name FROM t_name WHERE thai_idno = '%s'",
+                $id
             );
-            $response = $sapdb->get_results($sql, ARRAY_A);
+            $response = $sapdb->get_results($sql);
             $total = $sapdb->num_rows;
 
-            header("Location: ../pages_alert.php?act=eu");
-            break;
+            if(!empty($total)) {
+                header("Location: ../data.php?idcard=$id_encode");
+                break;
+            }else{
+                header("Location: ../index.php?alert=error");
+                break;
+            }
 
         default:
             header("Location: ../index.php");

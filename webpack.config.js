@@ -150,7 +150,7 @@ let config = {
     },
     proxy: {
       context: () => true,
-      target: "http://localhost/KPB-check_rename/dist",
+      target: "http://localhost/SAP-search_rename/dist",
       changeOrigin: true,
     },
   },
@@ -261,7 +261,7 @@ module.exports = (env, argv) => {
       filename: "includes/functions.php",
       templateParameters: { ...DBconfig },
       template: path.join(__dirname, "src/config/functions.php"),
-      excludeChunks: ["app", "addname","datepiker","copytext","ajaxfiles","chart"],
+      excludeChunks: ["app","datepiker","copytext","ajaxfiles","inputId"],
     })
   );
 

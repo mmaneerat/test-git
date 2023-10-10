@@ -51,7 +51,7 @@ $value = in_array($currentURI, $data) ? true : false;
 <nav class="navbar navbar-dark bg-primary shadow-sm p-3 mb-5">
     <div class="container">
         <a class="navbar-brand" href="#!">
-            ค้นหาประวัติเปลี่ยนชื่อตัว-ชื่อสกุล
+            ข้อมูลประวัติเปลี่ยนชื่อตัว-ชื่อสกุล
         </a>
         <?php if ($value == true) { ?>
         <a class="btn btn-outline-light" href="index.php">
